@@ -10,7 +10,7 @@ I was whatching Lex Fridman's interview with James, and he said: https://www.you
 I was pondering what this was, so I devided to look into into a little better and to reconder thos this all worked, I tried to recreate the AST from several bits. 
 
 So I took this sample code from Rosetta Code: https://rosettacode.org/wiki/Fibonacci_sequence#Iterative_44
-```
+```java
 public static long itFibN(int n) {
     if (n < 2) {
         return n;
@@ -100,7 +100,7 @@ Thus, the execution of this code in the JVM's which is a stack-based architectur
 
 So, looking that this, I then took the Fibonacci code in Forth:
 
-```
+```forth
 : fib ( n -- fib )
   0 1 rot 0 ?do  over + swap  loop drop ;
 ```
@@ -132,7 +132,7 @@ Rot
 And attempted to recreate the Java Code based on this AST, please consider that Java uses an array to store the intermediate Fibonacci numbers, rather than using a stack as in the Forth code. For the ***if*** statement checks if the input ***n*** is less than ***2***, and if so, returns ***n*** as the result. I created a loop to calculate the next Fibonacci number with each iteration, storing the result in the fibs array. The function ends by returning the last Fibonacci number stored in the fibs array.
 
 here is my probably poor attempt: 
-```
+```java
 static long fib(int n) {
     if (n < 2) {
         return n;
