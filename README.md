@@ -28,19 +28,19 @@ public static long itFibN(int n) {
 ```
 
 For this code, I then leveraged the http://lab.antlr.org tool to make sense of the AST, I thought it would give be a better result. I encourage you to have a look and paste the code example, it gave me a great token result, but not a good AST. 
-
+![ This is an Image ](https://github.com/jemo07/jvm-ast-encoding-rpn/blob/c63dc9d81ce99d012b1177d098ad89b65e6c92d3/AEDB9B52-995A-4E07-B9E9-054DFF8123DF.png)
 So I just took the code and created a simple text of it. 
 
 ```  
-MethodDeclaration
+Start 
 |
 return
 |
-IfStatement
+If (IfStatement)
 |
 < >
 |
-n
+n (variable)
 |
 2
 |
@@ -48,31 +48,31 @@ ExpressionStatement
 |
 =
 |
-ans
+ans (variable) 
 |
 +
 |
-n1
+n1 (variable)
 |
-n2
+n2 (variable)
 |
-ExpressionStatement
-|
-=
-|
-n1
-|
-n2
-|
-ExpressionStatement
+Expression
 |
 =
 |
-n2
+n1 (variable) 
 |
-ans
+n2 (variable)
 |
-ForStatement
+Expression
+|
+=
+|
+n2 (variable)
+|
+ans (variable)
+|
+For (ForStatement) 
 ```
 Conversely, this would be the Reverse Polish Notation of this AST.
 ```
@@ -106,7 +106,7 @@ So, looking that this, I then took the Fibonacci code in Forth:
 ```
 I re-created the AST for this code as: 
 ```
-MethodDeclaration
+Start
 |
 Drop
 |
